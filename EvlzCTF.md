@@ -25,4 +25,4 @@ http://evlz{url_seems_rotten_with}ctf.com
 ### WeTheUsers
 **Type**: Web
 
-In this challenge we were given a [source file](https://github.com/adamstebbing/CTF_Writeups/evlzctf-web-chal.txt) which allowed us to figure out that if the password is written `password, \'true\',` then the user would be granted admin privileges.
+In this challenge we were given a [source file](https://github.com/adamstebbing/CTF_Writeups/evlzctf-web-chal.txt) which allowed us to figure out that if the password is written `password, 'true',` then the user would be granted admin privileges.

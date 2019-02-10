@@ -6,7 +6,7 @@ Teammates: TheHeavyHorse, Seanr94
 
 Spent about four hours total. Got flags for Sanity Check 1, WeTheUsers, and FindMe. Also got flag for DontBlink but had trouble inputting it.
 
-#### Find Me
+### Find Me
 **Type**: Reverse
 
 Used `strings findme` to find:
@@ -22,7 +22,7 @@ uggc://riym{hey_frrzf_ebggra_jvgu_64}pgs.pbz
 http://evlz{url_seems_rotten_with}ctf.com
 ```
 
-#### WeTheUsers
+### WeTheUsers
 **Type**: Web
 
 In this challenge we were given a [source file](https://github.com/adamstebbing/CTF_Writeups/evlzctf-web-chal.txt) which allowed us to figure out that if the password is written `password, 'true',` then the user would be granted admin privileges.

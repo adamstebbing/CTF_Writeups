@@ -5,7 +5,7 @@ This weekend our team decided to give a shot at the aforementioned CTF. I believ
 This one was the easiest. The clue given was a regular conference hosted by OWASP with the answer being `AppSec`.
 
 #### I love images
-This one actually took me way longer than I'd like to admit. After using both `strings` and `exiftool` on the image 'godot.png' I was quickly able to find the string 'IZGECR33JZXXIX2PNZWHSX2CMFZWKNRUPU======'. It looked like a Base64 string, so I tried decoding it and got nothing of value and did the same with Base32. Unfortunately, I only discovered the flag after the fact, turns out the Base32 decoder I used didn't decode it properly. When I tried again on a different decoder I finally found the flag:
+This one actually took me way longer than I'd like to admit. After using both `strings` and `exiftool` on the image `godot.png` I was quickly able to find the string 'IZGECR33JZXXIX2PNZWHSX2CMFZWKNRUPU======'. It looked like a Base64 string, so I tried decoding it and got nothing of value and did the same with Base32. Unfortunately, I only discovered the flag after the fact, turns out the Base32 decoder I used didn't decode it properly. When I tried again on a different decoder I finally found the flag:
 ```
 FLAG{Not_Only_Base64}
 ```

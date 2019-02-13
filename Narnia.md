@@ -31,7 +31,7 @@ int main(){
 }
 ```
 
-By entering `(python -c 'print "A"*20 + "\xef\xbe\xad\xde"*10')` and piping it into the file we don't get the "WAY OFF!!!!" that we normally would but we also don't get the shell that we expect. So we know it works (kind of) but why are we using those commands. Well '-c' is used to tell python that the following information will be command-line input. Then the 20 A's are used to take up the space in the buf variable and finally we have the 0xdeadbeed in reverse byte-order to account for how the bytes are stored in memory (most PCs are little-endian, i.e. the byte with the littlest value is stored first, this can be checked with the command `lscpu | grep "Byte Order"`).
+By entering `(python -c 'print "A"*20 + "\xef\xbe\xad\xde"*10')` and piping it into the file we don't get the "WAY OFF!!!!" that we normally would but we also don't get the shell that we expect. So we know it works (kind of) but why are we using those commands. Well '-c' is used to tell python that the following information will be command-line input. Then the 20 A's are used to take up the space in the buf variable and finally we have the 0xdeadbeef in reverse byte-order to account for how the bytes are stored in memory (most PCs are little-endian, i.e. the byte with the littlest value is stored first, this can be checked with the command `lscpu | grep "Byte Order"`).
 
 Now we just have to add something to leave the input open after our code is run (after some research, I found the best way to do this was via the `cat` command).
 

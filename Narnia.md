@@ -1,5 +1,5 @@
 ## OverTheWire: Narnia
-After the frusration and lack of success in the Oman Quals CTF, I've decided to redirect my attention to some of the OverTheWire challenges. I've already completed both the Bandit and Leviathon series of challenges, but will not be doing write-ups on those due to the amount of resources already out there.
+After the frusration and lack of success in the Oman Quals CTF, I've decided to redirect my attention to some of the [OverTheWire](http://overthewire.com) challenges. I've already completed both the Bandit and Leviathon series of challenges, but will not be doing write-ups on those due to the amount of resources already out there.
 
 ### Narnia0
 After logging in with the username and password `narnia0` and reading the Welcome banner. It is discovered that the passwords for each level are stored in /etc/narnia_pass/narniaX and the programs to be exploited are in /narnia/ (as well as the source code for said programs).

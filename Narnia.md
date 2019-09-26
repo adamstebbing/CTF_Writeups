@@ -132,7 +132,7 @@ nairiepecu
 I hope this helped to explain some basic computer exploitation principles in regards to environment variables. As for shellcode, I'll do some reading up on that and provide some better explanations in the future.
 
 ### Narnia2
-First off, I would like to thank [Connor Hamlet](htp://github.com/cphamlet) for his help in crafting this exploit.
+First off, I would like to thank [Connor Hamlet](http://github.com/cphamlet) for his help in crafting this exploit.
 
 Taking a look at the code, we can see that the program is vulnerable to a stack buffer overflow (i.e. we can fill up the buffer to overwrite information on the stack).
 ```

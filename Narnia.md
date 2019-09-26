@@ -149,7 +149,9 @@ int main(int argc, char * argv[]){
     return 0;
 }
 ```
-Since I really did a return-to-libc exploit as part of my Masters, I decided to go with that approach. So after testing how to overwrite the instruction pointer (EIP), we found 132 was the amount of byes we needed to fill to get where we needed. After loading up the program in **GDB**, we found the address of the system command by using `print system` (it was 0xf7e4c850). Next we used the find command to locate the string `/bin/sh` in libc by entering `find &system, +999999, "/bin/sh"`. The only pattern found was at 0xf7f6ecc8. We used this information to craft the exploit below. _Note: We use the address 0xf7e11010 as useless information to overflow the return address and get to function input where we put "/bin/sh"_
+Since I recently did a return-to-libc exploit as part of my Masters, I decided to go with that approach. 
+
+After testing how to overwrite the instruction pointer (EIP), we found 132 was the amount of bytes we needed to fill. After loading up the program in **GDB**, we found the address of the system command by using `print system` (it was 0xf7e4c850). Next we used the find command to locate the string `/bin/sh` in libc by entering `find &system, +999999, "/bin/sh"`. The only pattern found was at 0xf7f6ecc8. We used this information to craft the exploit below. _Note: We use the address 0xf7e11010 as useless information to overflow the return address and get to function input where we put "/bin/sh"_
 
 ```
 narnia2@narnia:~$ /narnia/narnia2 $(python -c 'print "A"*132+"\x50\xc8\xe4\xf7\x10\x10\xe1\xf7\xc8\xec\xf6\xf7"')
